@@ -119,24 +119,7 @@ CREATE TABLE users (
 
 ## 🧩 How It Works
 
-```mermaid
-flowchart TD
-    A[User Registers] -->|AJAX POST| B[PHP Backend Validates & Stores in MySQL]
-    B --> C[Profile Created in MongoDB]
-    C --> D[Registration Success]
-    D --> E[User Logs In]
-    E -->|AJAX POST| F[PHP Backend Validates Credentials]
-    F --> G[Session Token Generated & Stored in Redis]
-    G --> H[Token Sent to Frontend & Saved in localStorage]
-    H --> I[User Accesses Profile Page]
-    I -->|AJAX GET with Token| J[PHP Backend Validates Token]
-    J --> K[Fetches Data from MySQL & MongoDB]
-    K --> L[Profile Data Returned as JSON]
-    L --> M[User Can Update Profile (AJAX POST)]
-    M --> K
-    I --> N[User Logs Out]
-    N --> O[Session Deleted from Redis & localStorage]
-```
+<img src="https://www.mermaidchart.com/raw/f55224cf-ede9-4c85-b467-0bde3c633428?theme=light&version=v0.1&format=svg" alt="User Flow Diagram" width="380"/>
 
 - **All communication is via AJAX.**
 - **No PHP sessions are used; only browser localStorage and Redis for session state.**
