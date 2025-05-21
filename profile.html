@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <!-- Alert container -->
+        <div id="alertContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 11;"></div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <!-- Profile container -->
+                <div class="profile-container">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="profile-title mb-0">
+                            <i class="fas fa-user-circle me-2"></i>My Profile
+                        </h2>
+                        <div>
+                            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                                <i class="fas fa-edit me-2"></i>Edit Profile
+                            </button>
+                            <button type="button" class="btn btn-outline-danger" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loader -->
+                    <div id="profileLoader" class="text-center my-4">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+
+                    <!-- Profile Content -->
+                    <div class="profile-info" id="profileContent" style="display: none;">
+                        <div class="row mb-3">
+                            <div class="col-md-4">Username:</div>
+                            <div class="col-md-8" id="profileUsername">Loading...</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">Email:</div>
+                            <div class="col-md-8" id="profileEmail">Loading...</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">Age:</div>
+                            <div class="col-md-8" id="profileAge">Not specified</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">Date of Birth:</div>
+                            <div class="col-md-8" id="profileDob">Not specified</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">Contact:</div>
+                            <div class="col-md-8" id="profileContact">Not specified</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProfileModalLabel">
+                        <i class="fas fa-edit me-2"></i>Edit Profile
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="updateProfileForm">
+                        <!-- Alert inside modal -->
+                        <div id="modalAlert"></div>
+
+                        <div class="mb-3">
+                            <label for="editAge" class="form-label">Age</label>
+                            <input type="number" class="form-control" id="editAge" min="0" placeholder="Enter age">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDob" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="editDob">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editContact" class="form-label">Contact</label>
+                            <input type="text" class="form-control" id="editContact" placeholder="Enter contact number">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary" id="updateProfileBtn">
+                                <i class="fas fa-save me-2"></i>Update Profile
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/profile.js"></script>
+</body>
+</html>

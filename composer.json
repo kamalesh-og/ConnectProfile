@@ -1,0 +1,17 @@
+{
+    "name": "kamal/guvi_project",
+    "autoload": {
+        "psr-4": {
+            "Kamal\\GuviProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kamalesh og",
+            "email": "kamaleshd.official@gmail.com"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^2.0"
+    }
+}
